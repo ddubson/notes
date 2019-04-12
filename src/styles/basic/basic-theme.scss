@@ -1,0 +1,35 @@
+@import "colors";
+@import "typography";
+@import "fonts";
+
+body {
+  font-family: $primaryFont;
+}
+
+.navbar-fixed-top {
+  font-size: 22px;
+  background-color: $primaryColor;
+  color: $primaryText;
+}
+
+.container {
+  border-left: 1px;
+  border-right: 1px;
+  border-style: solid;
+  border-top: 0;
+  border-bottom: 0;
+  border-color: $dividerColor;
+  padding: 0;
+}
+
+.note-section {
+
+  h5 {
+    background-color: $lightPrimaryColor;
+    padding: 10px;
+  }
+
+  .note-section-body {
+    padding: 10px;
+  }
+}

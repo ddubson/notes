@@ -1,7 +1,7 @@
 {
-  "name": "react-parcel-starter",
+  "name": "notes",
   "version": "1.0.0",
-  "description": "React with Parcel bundler starter kit",
+  "description": "Notes",
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ddubson/react-parcel-starter.git"
+    "url": "git+https://github.com/ddubson/notes.git"
   },
   "keywords": [
-    "starter"
+    "notes"
   ],
   "author": "Dmitriy Dubson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ddubson/react-parcel-starter/issues"
+    "url": "https://github.com/ddubson/notes/issues"
   },
-  "homepage": "https://github.com/ddubson/react-parcel-starter#readme",
+  "homepage": "https://github.com/ddubson/notes#readme",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
@@ -30,13 +30,17 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",
     "jest": "^24.5.0",
-    "parcel": "^1.12.3"
+    "parcel": "^1.12.3",
+    "sass": "^1.18.0"
   },
   "dependencies": {
     "@types/react": "^16.8.10",
     "@types/react-dom": "^16.8.3",
+    "assemble": "~0.3.11",
+    "grunt": "~0.4.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styles": "^0.2.1"
   },
   "babel": {
     "presets": [
