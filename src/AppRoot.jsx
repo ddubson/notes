@@ -1,4 +1,6 @@
-import React, { PureComponent } from "react";
+import React, {PureComponent} from "react";
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {TableOfContents} from "./TableOfContents";
 
 export class AppRoot extends PureComponent {
   render() {
@@ -7,16 +9,9 @@ export class AppRoot extends PureComponent {
         <nav className="navbar navbar-fixed-top">
           Engineering Notes
         </nav>
-        <div className="container">
-          <section className="note-section">
-            <h5>Java</h5>
-            <div className="note-section-body">
-              <ul>
-                <li>Flatten a list of lists</li>
-              </ul>
-            </div>
-          </section>
-        </div>
+        <Router>
+          <Route path={"/"} exact={true} render={() => <TableOfContents />} />
+        </Router>
       </React.Fragment>
     )
   }
