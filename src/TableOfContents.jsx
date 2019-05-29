@@ -1,4 +1,5 @@
 import React from "react";
+import {Link, NavLink} from "react-router-dom";
 
 export const TableOfContents = (props) => (
   <div className="container">
@@ -6,7 +7,7 @@ export const TableOfContents = (props) => (
       <h5>Java 8+</h5>
       <div className="note-section-body">
         <ul>
-          <li>Flatten a list of lists</li>
+          <li><NavLink to="/notes/java/flatten-list-of-lists">Flatten a list of lists</NavLink></li>
           <li>Merge two lists</li>
         </ul>
       </div>
