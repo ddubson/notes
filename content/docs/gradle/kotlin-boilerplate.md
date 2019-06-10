@@ -7,7 +7,7 @@ type: docs
 
 ## Kotlin with Spring Boot
 
-```groovy
+{{<highlight groovy>}}
 buildscript {
     ext.springBootVersion = "[SPRING-BOOT-VERSION]"
     ext.kotlinVersion = "[KOTLIN-VERSION]"
@@ -35,11 +35,11 @@ dependencies {
 
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
-```
+{{</highlight>}}
 
 ## JUnit 5 + Spek framework
 
-```groovy
+{{<highlight groovy>}}
 buildscript {
     ext {
         kotlinVersion = "1.1.4-3"
@@ -86,11 +86,11 @@ dependencies {
         exclude group: 'org.jetbrains.kotlin'
     }
 }
-```
+{{</highlight>}}
 
 ## JUnit 5
 
-```groovy
+{{<highlight groovy>}}
 buildscript {
     ext.kotlinVersion = "[KOTLIN_VERSION]"
     ext.junitVersion = "5.0.0"
@@ -122,4 +122,4 @@ apply from: "junit5.gradle"
 
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
-```
+{{</highlight>}}

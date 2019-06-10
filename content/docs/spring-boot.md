@@ -9,14 +9,14 @@ type: docs
 
 ### Turn off debug logs in Spring Boot testing
 
-```xml
+{{<highlight xml>}}
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
     <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
     ...
 </configuration>
-```
+{{</highlight>}}
 
 When a spring boot integration test runs, there are debug level logs that pop up
 before the Spring Boot banner, here's a way to turn the DEBUG level logs off.
@@ -25,7 +25,7 @@ Add `src/main/resources/logback.xml` with the code on the right.
 
 ### Logback template
 
-```xml
+{{<highlight xml>}}
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
     <!-- optional Nop status listener -->
@@ -55,6 +55,6 @@ Add `src/main/resources/logback.xml` with the code on the right.
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>
-```
+{{</highlight>}}
 
 Location of placement: `src/main/resources/` and `src/test/resources`

@@ -1,5 +1,5 @@
 ---
-title: Kotlin - In 5 minutes
+title: In 5 minutes
 type: docs
 ---
 

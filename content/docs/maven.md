@@ -9,7 +9,7 @@ type: docs
 
 > via `pom.xml`
 
-```xml
+{{<highlight xml>}}
 <project>
   ...
   <build>
@@ -33,14 +33,14 @@ type: docs
   </build>
   ...
 </project>
-```
+{{</highlight>}}
 
 > via cmd line:
 
-```xml
+{{<highlight bash>}}
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
-```
-  
+{{</highlight>}}
+
 Navigating debug via JetBrains Intellij, create a 'remote' configuration:
 
 ![Maven debug](/img/maven-1.png)

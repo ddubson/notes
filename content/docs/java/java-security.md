@@ -1,5 +1,5 @@
 ---
-title: Java - Security
+title: Security
 type: docs
 ---
 

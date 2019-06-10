@@ -7,4 +7,4 @@ type: docs
 
 - [z shell (zsh)](https://www.zsh.org)
   - [ohmyzsh framework](https://ohmyz.sh/)
-- [fish shell](https://www.fishshell.com)
+- [fish shell](https://fishshell.com)

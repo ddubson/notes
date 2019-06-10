@@ -1,5 +1,5 @@
 ---
-title: Java - Reading Files
+title: Reading Files
 type: docs
 ---
 
@@ -7,12 +7,12 @@ type: docs
 
 ## Using Scanner
 
-```java
+{{<highlight java>}}
 Scanner scanner = new Scanner(MyClass.class.getClass().getResourceAsStream("/file.txt"));
 while(scanner.hasNext()) {
     System.out.println(scanner.nextLine());
 }
-```
+{{</highlight>}}
 
 If file `file.txt` is on the classpath, this will use a classloader to create an InputStream to the file:
 

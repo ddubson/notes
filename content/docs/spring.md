@@ -7,9 +7,12 @@ type: docs
 
 ## Listening for Application Start or Refresh
 
+If needing to react to events right after the Spring container
+has started or has been refreshed.
+
 > v4.2+
 
-```java
+{{<highlight java>}}
 @Component
 public class MyClass  {
     @EventListener
@@ -17,11 +20,11 @@ public class MyClass  {
       // do stuff
     }
 }
-```
+{{</highlight>}}
 
 > v4.2 and below
 
-```java
+{{<highlight java>}}
 @Component
 public MyClass implements ApplicationListener<ContextRefreshedEvent> {
     @Override
@@ -29,7 +32,4 @@ public MyClass implements ApplicationListener<ContextRefreshedEvent> {
       // do stuff
     }
 }
-```
-
-If needing to react to events right after the Spring container
-has started or has been refreshed.
+{{</highlight>}}

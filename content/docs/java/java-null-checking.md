@@ -1,5 +1,5 @@
 ---
-title: Java - Null Checking
+title: Null Checking
 type: docs
 ---
 
@@ -7,7 +7,7 @@ type: docs
 
 ## Field checks (Java 1.7+)
 
-```java
+{{<highlight java>}}
 public class Car {
     private final Engine engine;
     private final Transmission transmission;
@@ -19,7 +19,7 @@ public class Car {
 
     ...
 }
-```
+{{</highlight>}}
 
 In JDK7, `Objects.requireNonNull` was introduced to be able to check if an object is null or not.
 It can be used to fail fast when wiring up objects at runtime.
