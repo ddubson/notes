@@ -1,2 +1,4 @@
 **/_gen
 public/
+.idea/
+*.iml
