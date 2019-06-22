@@ -32,20 +32,21 @@ Extend an existing class via color : operator but also call the super constructo
 `class ShaggyDog(val hairColor: String) : Dog() { .. }`
 
 Declare private variables in a class, e.g.:
-```
+
+{{<highlight kotlin>}}
 class Dog {
     private val animal: Boolean = true
 }
-```
+{{</highlight>}}
 
 Constructor variables that are also private variables, e.g.:
 
-```
-class Dog(val hairColor: String) {
-
-}
-```
+{{<highlight kotlin>}}
+class Dog(val hairColor: String)
+{{</highlight>}}
 
 Entity classes (similar to POJOs in Java) can be simplified via data class (getters, setters not needed):
 
-`data class Car(val type: String, val color: String)`
+{{<highlight kotlin>}}
+data class Car(val type: String, val color: String)
+{{</highlight>}}
