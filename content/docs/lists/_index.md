@@ -1,1 +1,4 @@
-Lists of good stuff
+---
+title: "Lists"
+weight: 1
+---
