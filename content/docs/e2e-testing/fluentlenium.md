@@ -7,7 +7,7 @@ weight: 1
 
 This is a guide to help introduce Fluentlenium \(running with PhantomJS\) in a Spring Boot application project \(Gradle\)
 
-#### Fetch Spring Boot test framework and utilities
+## Fetch Spring Boot test framework and utilities
 
 **build.gradle**
 
@@ -17,7 +17,7 @@ dependencies {
 }
 {{</highlight>}}
 
-#### Fetch Fluentlenium dependencies
+## Fetch Fluentlenium dependencies
 
 **build.gradle**
 
@@ -31,9 +31,9 @@ dependencies {
 }
 {{</highlight>}}
 
-Sidenote: newer versions of`selenium-remote-driver`do not work with ghostdriver
+> Newer versions of `selenium-remote-driver` do not work with ghostdriver
 
-#### Fetch the GhostDriver for interacting with PhantomJS
+## Fetch the GhostDriver for interacting with PhantomJS
 
 **build.gradle**
 
@@ -47,14 +47,14 @@ dependencies {
 }
 {{</highlight>}}
 
-#### Install phantomjs via NPM
+## Install phantomjs via NPM
 
 {{<highlight groovy>}}
 npm init
 npm i --save phantomjs-prebuilt
 {{</highlight>}}
 
-#### Create a simple Fluent test case
+## Create a simple Fluent test case
 
 {{<highlight java>}}
 import org.fluentlenium.adapter.junit.FluentTest;
