@@ -5,8 +5,8 @@ type: docs
 
 # Sample Gradle build templates
 
-## Kotlin and Spring Boot
-
+{{< tabs "1" >}}
+{{< tab "Kotlin + Spring Boot" >}}
 {{<highlight groovy>}}
 plugins {
     id "org.springframework.boot" version "2.1.3.RELEASE"
@@ -27,9 +27,33 @@ dependencies {
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
 {{</highlight>}}
+{{< /tab >}}
+{{< tab "Kotlin + JUnit 5" >}}
+{{<highlight groovy>}}
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.11"
+}
 
-## Kotlin, JUnit5, and Spek framework
+ext.junitVersion = "5.3.2"
 
+repositories { mavenCentral() }
+
+test { useJUnitPlatform() }
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
+    runtime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
+compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
+{{</highlight>}}
+{{< /tab >}}
+{{< tab "Kotlin, JUnit5, and Spek framework" >}}
 {{<highlight groovy>}}
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.3.20"
@@ -62,29 +86,5 @@ compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }
 {{</highlight>}}
 
 Example [here](https://github.com/ddubson/modular-monolith-reference-architecture/blob/master/build.gradle)
-
-## Kotlin and JUnit 5
-
-{{<highlight groovy>}}
-plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.3.11"
-}
-
-ext.junitVersion = "5.3.2"
-
-repositories { mavenCentral() }
-
-test { useJUnitPlatform() }
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation "org.jetbrains.kotlin:kotlin-reflect"
-
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
-    runtime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-}
-
-compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
-compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
-{{</highlight>}}
+{{< /tab >}}
+{{< /tabs >}}
