@@ -5,120 +5,85 @@ type: docs
 
 # Sample Gradle build templates
 
-## Kotlin with Spring Boot
+## Kotlin and Spring Boot
 
 {{<highlight groovy>}}
-buildscript {
-    ext.springBootVersion = "[SPRING-BOOT-VERSION]"
-    ext.kotlinVersion = "[KOTLIN-VERSION]"
-
-    repositories { mavenCentral() }
-
-    dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-    }
+plugins {
+    id "org.springframework.boot" version "2.1.3.RELEASE"
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+    id 'org.jetbrains.kotlin.jvm' version '1.3.21'
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.3.21"
+    id "org.jetbrains.kotlin.plugin.spring" version "1.3.21"
 }
 
 repositories { mavenCentral() }
 
-apply plugin: 'kotlin'
-apply plugin: 'kotlin-spring'
-apply plugin: 'org.springframework.boot'
-
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    compile "org.springframework.boot:spring-boot-starter:$springBootVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
+    compile "org.jetbrains.kotlin:kotlin-reflect"
+    compile "org.springframework.boot:spring-boot-starter"
 }
 
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
 {{</highlight>}}
 
-## JUnit 5 + Spek framework
+## Kotlin, JUnit5, and Spek framework
 
 {{<highlight groovy>}}
-buildscript {
-    ext {
-        kotlinVersion = "1.1.4-3"
-        spekVersion = "1.1.4"
-        junitVersion = "5.0.0"
-        junitPlatformVersion = "1.0.0-RC3"
-    }
-
-    repositories { mavenCentral() }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformVersion"
-    }
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.20"
 }
+
+ext.junitVersion = "5.3.2"
+ext.spekVersion = "2.0.5"
 
 apply plugin: "kotlin"
-apply plugin: 'org.junit.platform.gradle.plugin'
 
-version '1.0'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+repositories { jcenter() }
 
-junitPlatform {
-    filters { engines { include 'spek' } }
+test {
+    useJUnitPlatform {
+        includeEngines 'spek2'
+    }
 }
-
-repositories { mavenCentral() }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
 
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testCompile "org.junit.platform:junit-platform-runner:$junitPlatformVersion"
-    testRuntime "org.junit.platform:junit-platform-console:$junitPlatformVersion"
-
-    testCompile ("org.jetbrains.spek:spek-api:$spekVersion") {
-        exclude group: 'org.jetbrains.kotlin'
-    }
-
-    testRuntime ("org.jetbrains.spek:spek-junit-platform-engine:$spekVersion") {
-        exclude group: 'org.junit.platform'
-        exclude group: 'org.jetbrains.kotlin'
-    }
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.spekframework.spek2:spek-dsl-jvm:$spekVersion"
+    testImplementation "org.spekframework.spek2:spek-runner-junit5:$spekVersion"
 }
+
+compileKotlin { kotlinOptions { jvmTarget = "1.8" } }
+compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }
 {{</highlight>}}
 
-## JUnit 5
+Example [here](https://github.com/ddubson/modular-monolith-reference-architecture/blob/master/build.gradle)
+
+## Kotlin and JUnit 5
 
 {{<highlight groovy>}}
-buildscript {
-    ext.kotlinVersion = "[KOTLIN_VERSION]"
-    ext.junitVersion = "5.0.0"
-    ext.junitPlatformVersion = "1.0.0"
-
-    repositories { mavenCentral() }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.junit.platform:junit-platform-gradle-plugin:$junitPlatformVersion"
-    }
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.3.11"
 }
+
+ext.junitVersion = "5.3.2"
 
 repositories { mavenCentral() }
 
-apply plugin: 'kotlin'
-apply plugin: 'org.junit.platform.gradle.plugin'
+test { useJUnitPlatform() }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
 
-    testCompile "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junitVersion"
     runtime "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    runtime "org.junit.platform:junit-platform-console:$junitPlatformVersion"
 }
-
-apply from: "junit5.gradle"
 
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
