@@ -4,8 +4,6 @@ weight: 1
 type: docs
 ---
 
-# CircleCI Deploys
-
 ## Creating a simple test and build pipeline
 
 In project root, create a folder `.circleci` and place `config.yml` within it.

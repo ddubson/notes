@@ -5,8 +5,8 @@ type: docs
 
 # Sample Gradle build templates
 
-{{< tabs "1" >}}
-{{< tab "Kotlin + Spring Boot" >}}
+## Kotlin + Spring Boot
+
 {{<highlight groovy>}}
 plugins {
     id "org.springframework.boot" version "2.1.3.RELEASE"
@@ -27,8 +27,9 @@ dependencies {
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
 {{</highlight>}}
-{{< /tab >}}
-{{< tab "Kotlin + JUnit 5" >}}
+
+## Kotlin + JUnit 5
+
 {{<highlight groovy>}}
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.3.11"
@@ -52,8 +53,9 @@ dependencies {
 compileKotlin { kotlinOptions { jvmTarget = "1.8" }}
 compileTestKotlin { kotlinOptions { jvmTarget = "1.8" }}
 {{</highlight>}}
-{{< /tab >}}
-{{< tab "Kotlin, JUnit5, and Spek framework" >}}
+
+## Kotlin, JUnit5, and Spek framework 
+
 {{<highlight groovy>}}
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.3.20"
@@ -86,5 +88,3 @@ compileTestKotlin { kotlinOptions { jvmTarget = "1.8" } }
 {{</highlight>}}
 
 Example [here](https://github.com/ddubson/modular-monolith-reference-architecture/blob/master/build.gradle)
-{{< /tab >}}
-{{< /tabs >}}
