@@ -1,9 +1,7 @@
 ---
-title: Spring Boot Notes
+title: Logging
 type: docs
 ---
-
-# Spring Boot Notes
 
 ## Logging
 
