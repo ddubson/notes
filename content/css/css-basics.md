@@ -5,6 +5,46 @@ type: docs
 
 # CSS Basics
 
+Rule set structure:
+
+{{<highlight css>}}
+selector {
+  property: value;
+  property: value;
+  property: value;
+  property: value;
+}
+{{</highlight>}}
+
+Three types of stylesheets:
+
+1. Embedded
+2. Inline
+3. External
+
+## Box Model
+
+Box Model includes `margin`, `border`, `padding`, and content
+
+e.g.
+
+{{<highlight css>}}
+.myclass {
+  width: 300px;
+  padding: 50px;
+  margin: 50px;
+  border: 10px;
+}
+{{</highlight>}}
+
+{{% notice info %}}
+Even though width is `300px`, the actual width of the container is width + padding + margin + border 
+(in this case, `410px`)
+
+`box-sizing: border-box` will include width+height of the border and the width+height of the 
+padding in the width+height calculation   
+{{% /notice %}}
+
 ## Relational Selectors
 
 `ul li`
