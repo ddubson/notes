@@ -2,9 +2,6 @@
 title: Streams API
 type: docs
 ---
-
-# Streams API (Java 1.8+)
-
 ## Flatten list of lists
 
 {{<highlight java>}}

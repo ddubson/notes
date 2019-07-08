@@ -2,9 +2,6 @@
 title: Gradle + Kotlin
 type: docs
 ---
-
-# Sample Gradle build templates
-
 ## Kotlin + Spring Boot
 
 {{<highlight groovy>}}

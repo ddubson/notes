@@ -3,7 +3,6 @@ title: "Useful Configurations"
 date: 2019-07-03T17:11:04-04:00
 draft: false
 ---
-
 ### Setting Source / Test Directories
 
 With the `java` plugin applied, add:

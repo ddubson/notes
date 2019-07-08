@@ -3,7 +3,7 @@ title: NMap Notes
 type: docs
 ---
 
-# NMap cheatsheet
+## NMap cheatsheet
 
 {{<highlight bash>}}
 # Default nmap scan

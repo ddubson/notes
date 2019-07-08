@@ -2,9 +2,6 @@
 title: Null Checking
 type: docs
 ---
-
-# Null Checking
-
 ## Field checks (Java 1.7+)
 
 {{<highlight java>}}

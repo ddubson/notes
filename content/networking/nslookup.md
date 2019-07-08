@@ -5,7 +5,7 @@ weight: 1
 # bookShowToC: true
 ---
 
-# nslookup recipes
+## nslookup recipes
 
 Basic lookup
 

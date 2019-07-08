@@ -5,21 +5,21 @@ weight: 1
 # bookShowToC: true
 ---
 
-# Package Managers for Windows
+## Package Managers for Windows
 
 * [Chocolatey](https://chocolatey.org/)
 * [Scoop](https://scoop.sh/)
 
 ---
 
-# SSH Clients
+## SSH Clients
 
 *   [MobaxTerm](https://mobaxterm.mobatek.net/)
 *   MRemoteNG
 
 ---
 
-# Console Clients
+## Console Clients
 
 * ConEmu
 * http://cmder.net/

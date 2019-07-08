@@ -2,9 +2,6 @@
 title: Useful JS tools
 type: docs
 ---
-
-# Useful JS tools
-
 ## Execution delay
 
 Debounce - delay execution of a function by a specified timeout

@@ -2,9 +2,6 @@
 title: In 5 minutes
 type: docs
 ---
-
-# Kotlin in 5 minutes
-
 ## Data Types
 
 `val` -> immutable variable - can't be changed once set (same as final in Java)

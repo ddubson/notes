@@ -2,9 +2,6 @@
 title: Reading Files
 type: docs
 ---
-
-# Reading files
-
 ## Using Scanner
 
 {{<highlight java>}}

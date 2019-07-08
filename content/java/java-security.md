@@ -2,7 +2,6 @@
 title: Security
 type: docs
 ---
-
 ## Hash Functions
 
 [Java Secure Coding Practices](https://www.securecoding.cert.org/confluence/display/java/Security:+Introduction)

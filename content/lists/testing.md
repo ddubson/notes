@@ -3,10 +3,6 @@ title: "Test Tooling"
 weight: 1
 type: docs
 ---
-
-# Test Tooling
----
-
 ## Mocking / Isolation Frameworks
 
 ### Java
