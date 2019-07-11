@@ -1,11 +1,11 @@
 ---
-title: Spring Framework Notes
+title: Application Events
 type: docs
 ---
 
-# Application Events
+## Application Events
 
-## Listening for Application Start or Refresh
+### Listening for Application Start or Refresh
 
 If needing to react to events right after the Spring container
 has started or has been refreshed.

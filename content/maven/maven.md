@@ -1,10 +1,7 @@
 ---
-title: Maven Notes
+title: Spring Boot Maven Plugin
 type: docs
 ---
-
-# Spring Boot Maven Plugin
-
 ## Entering Debug Mode
 
 > via `pom.xml`
