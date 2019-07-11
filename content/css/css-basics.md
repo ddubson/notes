@@ -3,8 +3,6 @@ title: Basics
 type: docs
 ---
 
-# CSS Basics
-
 Rule set structure:
 
 {{<highlight css>}}
