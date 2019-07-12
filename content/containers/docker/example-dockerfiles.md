@@ -30,3 +30,24 @@ RUN echo ${runcmd} > /opt/launch.sh && chmod +x /opt/launch.sh
 # Set launch script to fire off when docker launches container
 ENTRYPOINT /opt/launch.sh
 {{</highlight>}}
+
+### Example 2
+
+{{<highlight Dockerfile>}}
+FROM centos:centos6                                             // inherit from base image, local images have priority over remote images when building from an image.
+MAINTAINER <First Last>
+RUN yum -y update; yum clean all
+RUN yum -y install httpd
+RUN echo "Apache test site" >> /var/www/html/index.html
+EXPOSE 80                                                       // making port 80 available publicly
+RUN echo "/sbin/service httpd start" >> /root/.bashrc
+{{</highlight>}}
+
+### Building an image from a Dockerfile
+
+#### Build the image
+
+{{<highlight bash>}}
+docker build -t ddubson:centos6 .
+$> docker build —file Dockerfile —tag mycustomimg/withservices:v1
+{{</highlight>}}

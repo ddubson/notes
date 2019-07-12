@@ -2,7 +2,6 @@
 title: Front-End Tooling
 type: docs
 ---
-
 ## Front End Architectures
 
 *   [Flux Architecture](https://facebook.github.io/flux/)

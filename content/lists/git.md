@@ -3,9 +3,6 @@ title: "Git Tooling"
 weight: 1
 type: docs
 ---
-
-# Git Tooling
-
 ## Visual Git
 
 -   [MacOS - GitX](http://gitx.frim.nl/)
