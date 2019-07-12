@@ -14,7 +14,7 @@ Docker builds are isolated with respect to 8 aspects:
 - IPC namespace - process communication over shared memory
 - NET namespace - network access and structure
 - USR namespace - user names and identifiers
-- chroot\(\) - controls the location of the filesystem root
+- chroot() - controls the location of the filesystem root
 - cgroups - resource protection
 
 ![Docker2](/img/docker-2.png)
@@ -111,9 +111,7 @@ docker run -i -t -d centos:apacherunning /bin/bash
 
 #### Pushing Images to Docker Hub
 
-hub.docker.com
-
-free account \(1 private repo only\)
+hub.docker.com - free account (1 private repo only)
 
 `docker push [image-name]`
 
@@ -152,27 +150,25 @@ docker run -v /Users/<path>:/<container-path> ...
 
 ### Advanced Network Management
 
-```
-• configuring a bridge adapter
+- configuring a bridge adapter
 
-    ○ ip link add r10 type bridge
+{{<highlight bash>}}   
+ip link add r10 type bridge
+ip addr add 10.10.100.1/24 dev br10- class C range (10.10.100)
+ip link set br10 up
+{{</highlight>}}
 
-    ○ ip addr add 10.10.100.1/24 dev br10- class C range \(10.10.100\)
+- configure docker to bridge:
 
-    ○ ip link set br10 up
+`docker.io -d -b br10 &`
 
-• configure docker to bridge:
+- run the image
 
-    ○ docker.io -d -b br10 &
+`docker run -t -i centos:centos6 /bin/bash`
 
-• run the image
+/etc/rc.local ->
 
-    ○ docker run -t -i centos:centos6 /bin/bash
-```
-
-/etc/rc.local
-
-```
+{{<highlight bash>}}
 auto lo
 iface lo inet loopback
 
@@ -183,7 +179,7 @@ iface br10 inet static
     bridge_ports dummy0
     bridge_stp off
     bridge_fd 0
-```
+{{</highlight>}}
 
 Labs:
 
@@ -191,127 +187,83 @@ Labs:
 
 Interactive Shell Control
 
-```
-• docker run -t -i —name MYCONTAINER &lt; = name a container when running
-
-• docker exec -t -i MYCONTAINER /usr/bin/top &lt;= attaching to a process in a container
-```
+{{<highlight bash>}}
+docker run -t -i —name MYCONTAINER <= name a container when running
+docker exec -t -i MYCONTAINER /usr/bin/top <= attaching to a process in a container
+{{</highlight>}}
 
 #### Previous Container Management
 
-```
-• docker ps -a =&gt; history of all containers that ever ran
+{{<highlight bash>}}
+docker ps -a =&gt; history of all containers that ever ran
+docker ps -a | wc -l (count number of lines, number of containers that are stopped)
+{{</highlight>}}
 
-• Docker ps -a \| wc -l \(count number of lines, number of containers that are stopped\)
-```
+Delete everything that is 7 days ago
 
-Docker ps -a \| grep '7 days ago' \| awk '{print $1}' \| xargs docker rm - delete everything that is 7 days ago
+`Docker ps -a | grep '7 days ago' | awk '{print $1}' | xargs docker rm`
 
 #### Container Routing
 
-```
-• Set a static route
-```
+Set a static route
 
-Route add -net \[ip\] netmask 255.255.255.0 gw \[gatewayip\]
+`docker route add -net [ip] netmask 255.255.255.0 gw [gatewayip]`
 
 #### Sharing Container Resources
 
-```
-> docker run -d -i -t -v /data --name DATA1 ubuntu:latest /bin/bash
-> docker run -d -i -t --volumes-from DATA1 --name DATA2 ubuntu:latest /bin/bash
-```
+{{<highlight bash>}}
+docker run -d -i -t -v /data --name DATA1 ubuntu:latest /bin/bash
+docker run -d -i -t --volumes-from DATA1 --name DATA2 ubuntu:latest /bin/bash
+{{</highlight>}}
 
 #### Committing a running container
 
-```
-• Run an image: docker run -t -i ubuntu:latest /bin/bash
-
-• Once in terminal, update apt-get and then install the cmd "htop"
-
-• In another terminal, do docker ps and see what the container name is
-
-• Via container name, run "docker commit \[name\] \[new-image-name\]"
-
-• Run the new image: "docker run -t -i ubuntu:htop /bin/bash"
-```
+- Run an image: `docker run -t -i ubuntu:latest /bin/bash`
+- Once in terminal, update apt-get and then install the cmd "htop"
+- In another terminal, run `docker ps` and see what the container name is
+- Via container name, run `docker commit [name] [new-image-name]`
+- Run the new image: `docker run -t -i ubuntu:htop /bin/bash`
 
 Check if cmd is there.
 
 Useful Docker CLI Commands
 
-```
-• docker cp
-
-    ○ Copy files from a container
-
-    ○ e.g. docker cp \[name-of-container\]:/etc/yum.conf tmp
-
-• docker diff
-
-    ○ View all the changes of the container since it was started.
-
-    ○ e.g. docker diff \[name-of-container\]
-
-• docker events
-
-    ○ A realtime view of events that Docker captures \(e.g. start/stop a container\)
-
-    ○ e.g. docker events
-
-    ○ e.g. docker events --since '2014-12-05'
-
-• docker history
-
-    ○ History of an image
-
-    ○ e.g. docker history centos:latest
-
-• docker exec
-
-    ○ Send remote commands to a container
-
-    ○ Docker exec -I -t MyTestContainer1 /usr/bin/yum -y update
-
-• docker info
-
-    ○ information about running containers
-
-    ○ e.g. docker -D info
-
-• docker kill
-
-    ○ kill a container immediately
-
-    ○ sends kill -9
-
-    ○ e.g. docker kill \[container-name\]
-
-• docker save/export
-
-    ○ docker \[export\|save\] OurWeb3 &gt; OurWeb.tar
-
-    ○ builds base image from container into a tar file
-
-• docker load/import
-
-    ○ docker \[load\] &lt; OurWeb.tar
-
-    ○ docker load -i OurWeb.tar
-
-    ○ imports an external image
-
-• docker pause/unpause
-
-    ○ pause the container execution \(freeze it\)
-
-    ○ unpause the container execution \(unfreeze execution\)
-
-• docker top
-
-    ○ top command into a container
-```
+- docker cp
+    - Copy files from a container
+    - e.g. `docker cp [name-of-container]:/etc/yum.conf tmp`
+- docker diff
+    - View all the changes of the container since it was started.
+    - e.g. `docker diff [name-of-container]`
+- docker events
+    - A realtime view of events that Docker captures (e.g. start/stop a container)
+    - e.g. `docker events`
+    - e.g. `docker events --since '2014-12-05'`
+- docker history
+    - History of an image
+    - e.g. `docker history centos:latest`
+- docker exec
+    - Send remote commands to a container
+    - `docker exec -I -t MyTestContainer1 /usr/bin/yum -y update`
+- docker info
+    - information about running containers
+    - e.g. `docker -D info`
+- docker kill
+    - kill a container immediately
+    - sends kill -9
+    - e.g. `docker kill [container-name]`
+- docker save/export
+    - `docker [export|save] OurWeb3 > OurWeb.tar`
+    - builds base image from container into a tar file
+- docker load/import
+    - `docker [load] < OurWeb.tar`
+    - `docker load -i OurWeb.tar`
+    - imports an external image
+- docker pause/unpause
+    - pause the container execution (freeze it)
+    - unpause the container execution (unfreeze execution)
+- docker top
+    - top command into a container
 
 #### Optimizing Dockerfile Builds
 
-`docker images -t` \(can see all the layers of containers that were built by Dockerfile\)
+`docker images -t` (can see all the layers of containers that were built by Dockerfile)
