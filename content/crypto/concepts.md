@@ -2,6 +2,7 @@
 title: "Concepts"
 date: 2019-07-17T13:19:15-04:00
 draft: false
+weight: 1
 ---
 {{% notice info %}}
 Supports one of the three major security goals: **Confidentiality**
@@ -21,7 +22,7 @@ Cryptography maintains the secrecy of data and also potentially the integrity of
 
 **Cryptanalysis** - study of breaking encryption algorithms (attempting to decrypt ciphertext without the appropriate key)
 
-**Code** - usually a concept that is a phrase/sentence (e.g. "Thunder" -&gt; "Flash"); usually requires a codebook to interpret
+**Code** - usually a concept that is a phrase/sentence (e.g. "Thunder" -> "Flash"); usually requires a codebook to interpret
 
 **Cipher** - character-by-character representation of a text
 
