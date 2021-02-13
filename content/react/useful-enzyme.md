@@ -13,7 +13,7 @@ const componentWrapper = mount(<MyComponent />);
 componentWrapper.find("input").simulate('change', { target: { value: "valueToSet" }});
 {{</highlight>}}
 
-When attempting to simulate setting a value to a field, React will need a pair of `value` and `onChange` methods to be able to register the changes.
+When attempting to simulate setting a value to a field, React will need a pair of `value` and `onChange` methods to be able to register the changes (controlled).
 
 e.g.
 
